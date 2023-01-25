@@ -13,6 +13,7 @@ module.exports = {
       'green-500' : '#0abab5',
       'green-300' : '#9bf1e3',
       'green-100'  : '#e6fdf9',
+      'white-text': '#eaeaea'
     },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
