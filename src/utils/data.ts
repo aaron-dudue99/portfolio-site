@@ -1,3 +1,1 @@
-const data = ''
-
-export default data;
+export const data = []
