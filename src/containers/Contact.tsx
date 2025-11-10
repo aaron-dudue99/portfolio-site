@@ -1,5 +1,6 @@
 import Heading from "../components/Heading";
-import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
@@ -7,27 +8,27 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: <FaGithub size={28} />,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/aaron-dudue99",
     },
     {
       name: "LinkedIn",
       icon: <FaLinkedin size={28} />,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/duduzile-aaron-sibanda",
     },
     {
       name: "Email",
       icon: <MdEmail size={28} />,
-      url: "mailto:your.email@example.com",
+      url: "mailto:duduzilesibanda99@gmail.com",
     },
     {
       name: "Twitter",
-      icon: <FaTwitter size={28} />,
-      url: "https://twitter.com/yourusername",
+      icon: <FaXTwitter size={28} />,
+      url: "https://twitter.com/aarondudue99",
     },
     {
       name: "WhatsApp",
       icon: <FaWhatsapp size={28} />,
-      url: "https://wa.me/1234567890", // replace with your number
+      url: "https://wa.me/263776712092",
     },
   ];
   return (
