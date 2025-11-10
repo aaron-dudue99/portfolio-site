@@ -1,0 +1,29 @@
+<svg
+      width={size}
+      height={size}
+      viewBox="0 0 120 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      {/* Hexagon Outline */}
+      <polygon
+        points="60,10 105,35 105,85 60,110 15,85 15,35"
+        fill="none"
+        stroke="#c9bfc0"
+        strokeWidth="8"
+        strokeLinejoin="round"
+      />
+      {/* Text */}
+      <text
+        x="60"
+        y="70"
+        textAnchor="middle"
+        fontFamily="'Space Grotesk', sans-serif"
+        fontWeight="700"
+        fontSize="34"
+        fill="#c9bfc0"
+      >
+        DS
+      </text>
+    </svg>

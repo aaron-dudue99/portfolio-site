@@ -1,71 +1,55 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #121212;
+  --color-surface: #231616;
+  --color-primary: #c33b3b;
+  --color-primary-500: #d95a5a;
+  --color-primary-400: #e78282;
+  --color-primary-300: #f1b0b0;
+  --color-primary-200: #f7d1d1;
+  --color-primary-100: #fae6e6;
+  --color-primary-50: #fcf4f4;
+  --color-secondary: #9c2a2a;
+  --color-text-main: #ffffff;
+  --color-text-muted: #c9bfc0;
+  --color-border: #332020;
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background-accent-gradient: linear-gradient(
+    90deg,
+    #c33b3b 0%,
+    #9c2a2a 100%
+  );
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@utility bg-vignette {
+  background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(18, 18, 18, 1) 100%
+    ),
+    var(--color-background);
 }
 
+.shadow-glow {
+  text-shadow: 0 0 10px rgba(195, 59, 59, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* For modern browsers */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow-y: scroll; /* ensures consistent layout */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+  display: none;
 }
