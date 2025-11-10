@@ -76,10 +76,7 @@ export default function Tools() {
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 120, damping: 15 }}
-              className="flex flex-col items-center justify-center text-center 
-                         w-[170px] h-[170px] rounded-[1.5rem] p-6
-                         bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
-                         backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)]"
+              className="flex flex-col items-center justify-center text-center w-[170px] h-[170px] rounded-[1.5rem] p-6bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)]"
             >
               <div className="text-primary-400 mb-3">{tool.icon}</div>
               <h4 className="text-base font-semibold">{tool.title}</h4>
