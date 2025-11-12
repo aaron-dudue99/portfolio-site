@@ -32,7 +32,7 @@ const Contact = () => {
     },
   ];
   return (
-    <section id="contact">
+    <section id="contact" className="w-full">
       <Heading title="Don't be A Stranger" emoji="👋🏽" />
 
       <p
@@ -42,7 +42,7 @@ const Contact = () => {
         Get in Touch
       </p>
 
-      <div className="flex justify-center items-center gap-8 py-4 bg-gray-900 ">
+      <div className="flex justify-start items-center gap-8 py-4 ">
         {contacts.map((contact) => (
           <a
             key={contact.name}

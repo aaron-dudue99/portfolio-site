@@ -3,8 +3,14 @@ import Heading from "../components/Heading";
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="min-h-screen flex flex-col  gap-20 py-24">
+    <section id="projects" className="min-h-screen flex flex-col   py-24">
       <Heading title="My Projects" emoji="💼" />
+      <p
+        style={{ color: "var(--color-text-muted)" }}
+        className="py-6  leading-relaxed"
+      >
+        Some of the projects I've worked on
+      </p>
       <ProjectCard
         image="/images/project1.jfif"
         title="RideChecka"

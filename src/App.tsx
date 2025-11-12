@@ -8,7 +8,7 @@ import Footer from "./containers/Footer";
 
 export default function App() {
   return (
-    <div className="bg-background text-text-main font-body mx-auto">
+    <div className="bg-background text-text-main font-body mx-auto w-full max-w-full overflow-x-hidden">
       <Navbar />
       <Hero />
 

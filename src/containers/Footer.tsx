@@ -38,24 +38,19 @@ function LogoSVG({ size = 36 }: { size?: number }) {
 export default function Footer() {
   return (
     <footer className="w-full mt-20">
-      {/* Full Width Border */}
       <div className="w-full border-t border-[rgba(255,255,255,0.1)]"></div>
 
-      {/* Content Container */}
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-row justify-between items-center gap-4 w-full">
-          {/* Left: Logo and Design & Development */}
           <div className="flex items-center gap-3">
-            {/* Logo Placeholder - User will replace */}
             <div className="w-8 h-8  rounded flex items-center justify-center text-white text-xs font-bold">
               <LogoSVG size={36} />
             </div>
-            <span className="text-white text-sm font-[Poppins] tracking-wide">
+            <span className="text-white text-sm tracking-wide">
               DESIGN & DEVELOPMENT
             </span>
           </div>
 
-          {/* Right: Social Icons */}
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/aaron-dudue99"

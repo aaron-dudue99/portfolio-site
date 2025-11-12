@@ -26,22 +26,20 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 120, damping: 15 }}
-      className="relative w-full max-w-4xl mx-auto rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-stretch gap-6 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)] overflow-visible"
+      className="relative w-full max-w-4xl mx-auto rounded-[2rem] p-8  flex flex-col items-stretch gap-6 bg-[rgba(255,255,255,0.05)]  backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)] overflow-visible"
     >
       {/* Image */}
-      <div className="relative w-full md:w-[45%] flex justify-center items-center overflow-visible">
+      <div className="relative w-full flex justify-center items-center overflow-visible">
         <img
           src={image}
           alt={title}
-          className="rounded-2xl object-cover w-full h-[300px] md:h-[400px]"
+          className="rounded-2xl object-cover w-full h-[300px] "
         />
       </div>
 
       {/* Right Section */}
-      <div className="flex flex-col justify-center items-start w-full md:w-[55%] text-white">
-        <h3 className="text-2xl sm:text-3xl font-bold font-[Poppins]">
-          {title}
-        </h3>
+      <div className="flex flex-col justify-center items-start w-full text-white">
+        <h3 className="text-2xl  font-bold font-[Poppins]">{title}</h3>
         <p className="mt-2 text-[#B3A9A9] text-sm">{subtitle}</p>
 
         {/* Tech Stack */}

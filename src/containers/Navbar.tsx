@@ -66,8 +66,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-4 left-0 w-full z-50 pointer-events-auto">
-        <div className="mx-auto w-[90%] max-w-[800px]">
+      <nav className="fixed top-4 left-0 right-0 w-full z-50 pointer-events-auto px-4 sm:px-6">
+        <div className="mx-auto w-full max-w-[800px]">
           {/* Top navbar */}
           <motion.div
             animate={{

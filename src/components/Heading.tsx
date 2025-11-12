@@ -6,7 +6,7 @@ const Heading = ({ title, emoji }: { title: string; emoji: string }) => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="font-sans text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-xl"
+      className="font-heading text-4xl  font-extrabold leading-tight w-full"
     >
       <span
         style={{

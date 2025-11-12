@@ -6,34 +6,37 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center bg-vignette px-6 sm:px-10 md:px-16 text-left relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center bg-vignette px-6 sm:px-10  text-left relative overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-20"
     >
       {/* Floating hand emojis (outside max-width container) */}
       <motion.span
-        className="absolute top-16 left-6 sm:left-10 text-8xl sm:text-6xl select-none"
+        className="absolute top-16 left-4 text-6xl  select-none z-0 pointer-events-none"
         animate={{ rotate: [0, 15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
+        style={{ maxWidth: "100px", overflow: "hidden" }}
       >
         ✌🏽
       </motion.span>
 
       <motion.span
-        className="absolute bottom-16 right-6 sm:right-10 text-8xl sm:text-6xl select-none"
+        className="absolute bottom-16 right-4 text-6xl  select-none z-0 pointer-events-none"
         animate={{ rotate: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
+        style={{ maxWidth: "100px", overflow: "hidden" }}
       >
         🖖🏽
       </motion.span>
 
-      <div className="w-full max-w-[800px] flex flex-col justify-center items-start top-16">
+      <div className="w-full max-w-[800px] flex flex-col justify-center items-start relative z-10 mx-auto">
         {/* Hero Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-sans text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight max-w-xl"
+          className="font-heading text-5xl sm:text-5xl font-extrabold text-white leading-tight w-full"
+          style={{ willChange: "opacity, transform" }}
         >
-          building{" "}
+          <span className="inline-block">building</span>{" "}
           <motion.span
             animate={{
               backgroundPosition: [
@@ -49,20 +52,19 @@ export default function Hero() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
+            className="gradient-text"
             style={{
               backgroundImage:
                 "linear-gradient(-45deg, #C33B3B, #E78282, #FAE6E6, #C33B3B)",
               backgroundSize: "400% 400%",
               WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              color: "transparent",
-              display: "inline-block",
+              willChange: "background-position",
             }}
           >
             elegant interfaces
           </motion.span>{" "}
-          that feel as good as they look.
+          <span className="inline-block">that feel as good as they look.</span>
         </motion.h1>
 
         <p
