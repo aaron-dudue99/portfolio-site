@@ -1,73 +1,124 @@
-# React + TypeScript + Vite
+# 🌐 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built using **React**, **Vite**, **TailwindCSS**, and **Framer Motion**.  
+Designed with a clean layout, smooth animations, and subtle **glassmorphism** to highlight projects, skills, and contact information.
 
-Currently, two official plugins are available:
+Deployed on **Vercel** for fast, reliable performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎨 **Modern UI with Glassmorphism** components
+- 📱 **Fully responsive** design (mobile-first)
+- ⚡ **Blazing fast** performance (Vite + lightweight components)
+- 🌀 **Smooth animations** powered by Framer Motion
+- 🧩 Organized components and container-based architecture
+- 🗂 Clean project structure for easy scaling
+- 🌙 Optional dark mode (if included)
+- 📨 Contact section ready for integration
+- 🚀 Deployed with Vercel (automatic builds + CI)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Frontend**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- ⚛️ React (TypeScript)
+- ⚡ Vite
+- 🎨 TailwindCSS
+- 🎞️ Framer Motion
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Tools & Libraries**
+
+- ESLint
+- Prettier (if applicable)
+
+**Deployment**
+
+- ▲ Vercel
+
+---
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/aaron-dudue99/portfolio-site.git
+cd portfolio-site
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+### 3. Start Development Server
+
+```bash
+pnpm run dev
+```
+
+The app will be available at:
+http://localhost:5173/
+
+---
+
+## 📦 Build for Production
+
+```bash
+pnpm run build
+pnpm run preview
+```
+
+---
+
+## 🌍 Deployment (Vercel)
+
+This project is deployed using Vercel.
+
+To redeploy:
+
+1. Push changes to the main branch
+2. Vercel automatically builds & deploys
+3. Your live site updates instantly
+
+---
+
+## 🎨 Customization
+
+You can customize the portfolio by modifying:
+
+- Text + content inside `containers/`
+- Reusable UI elements in `components/`
+- Global styling in `index.css` & `App.css`
+- Tailwind config for theme & colors
+- Add or remove animations using Framer Motion props
+
+Images, icons, and other files can be added under:
+
+```bash
+src/assets
+```
+
+---
+
+## 📅 Roadmap (Optional)
+
+- Add blog section
+- Add light/dark mode toggle
+- Add project filtering
+- Add downloadable resume button
+- Improve animations with staggered transitions
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+You are free to use and modify it.
