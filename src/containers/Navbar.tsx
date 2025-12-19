@@ -144,11 +144,12 @@ export default function Navbar() {
                 {["Home", "Projects", "Work", "Tools", "My Thoughts", "Contact"].map(
                   (item) => {
                     const isBlogPage = item === "My Thoughts";
-                    const href = isBlogPage
-                      ? "/blog"
-                      : item === "Home"
-                        ? "/"
-                        : `/#${item.toLowerCase()}`;
+                    const isProjectsPage = item === "Projects";
+
+                    let href = `/#${item.toLowerCase()}`;
+                    if (item === "Home") href = "/";
+                    if (isBlogPage) href = "/blog";
+                    if (isProjectsPage) href = "/projects";
 
                     return (
                       <Link

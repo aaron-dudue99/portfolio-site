@@ -1,7 +1,7 @@
 import Heading from "../components/Heading";
 import BlogCard from "../components/BlogCard";
-import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import Button from "../components/Button";
 
 const blogPosts = [
     {
@@ -41,22 +41,34 @@ const BlogSection = () => {
                 Insights on design, development, and the tech industry.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.1 } },
+                }}
+            >
                 {blogPosts.map((post) => (
-                    <BlogCard key={post.slug} {...post} />
+                    <motion.div
+                        key={post.slug}
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                        transition={{ type: "spring", stiffness: 120, damping: 15 }}
+                    >
+                        <BlogCard {...post} />
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
             <div className="mt-12 w-full flex justify-center">
-                <Link to="/blog">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-8 py-3 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-white font-medium hover:bg-[rgba(255,255,255,0.1)] transition-colors"
-                    >
-                        View All Posts
-                    </motion.button>
-                </Link>
+                <Button href="/blog" variant="outline">
+                    View All Posts
+                </Button>
             </div>
         </section>
     );

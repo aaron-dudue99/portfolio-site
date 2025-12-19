@@ -1,6 +1,8 @@
 import Heading from "../components/Heading";
 import BlogCard from "../components/BlogCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Skeleton from "../components/Skeleton";
+import { motion } from "motion/react";
 
 const allBlogPosts = [
     {
@@ -38,8 +40,17 @@ const allBlogPosts = [
 ];
 
 export default function BlogPage() {
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        // Simulate API fetch delay
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -50,11 +61,44 @@ export default function BlogPage() {
                     Thoughts, tutorials, and musings on the world of software development.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {allBlogPosts.map((post) => (
-                        <BlogCard key={post.slug} {...post} />
-                    ))}
-                </div>
+                {loading ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {[1, 2, 3, 4].map((_, i) => (
+                            <div key={i} className="h-[400px] rounded-[2rem] p-6 bg-[rgba(255,255,255,0.02)] border border-white/5 flex flex-col gap-4">
+                                <Skeleton height="200px" className="rounded-2xl" />
+                                <Skeleton variant="text" width="80%" className="h-6 mt-2" />
+                                <Skeleton variant="text" width="60%" />
+                                <div className="mt-auto flex justify-between">
+                                    <Skeleton width={60} height={16} />
+                                    <Skeleton width={40} height={16} />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: {},
+                            visible: { transition: { staggerChildren: 0.1 } },
+                        }}
+                    >
+                        {allBlogPosts.map((post) => (
+                            <motion.div
+                                key={post.slug}
+                                variants={{
+                                    hidden: { opacity: 0, y: 40 },
+                                    visible: { opacity: 1, y: 0 },
+                                }}
+                                transition={{ type: "spring", stiffness: 120, damping: 15 }}
+                            >
+                                <BlogCard {...post} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                )}
             </div>
         </div>
     );

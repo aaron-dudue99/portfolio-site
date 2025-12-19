@@ -5,6 +5,8 @@ import Footer from "./containers/Footer";
 import Home from "./pages/Home";
 import BlogPage from "./pages/BlogPage";
 import BlogPost from "./pages/BlogPost";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetail from "./pages/ProjectDetail";
 
 function ScrollToAnchor() {
   const { hash } = useLocation();
@@ -31,6 +33,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
           </Routes>
         </main>
 
