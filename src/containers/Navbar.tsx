@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MdMenu, MdClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 /** Inline SVG logo */
 function LogoSVG({ size = 36 }: { size?: number }) {
@@ -93,9 +94,9 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               className="flex items-center gap-4 select-none"
             >
-              <div className="w-10 h-10 flex items-center justify-center bg-transparent">
+              <Link to="/" className="w-10 h-10 flex items-center justify-center bg-transparent">
                 <LogoSVG size={36} />
-              </div>
+              </Link>
 
               <div className="text-sm tracking-wide text-white font-semibold">
                 Duduzile Sibanda
@@ -140,19 +141,31 @@ export default function Navbar() {
 
 
 
-                {["Home", "Projects", "Work", "Tools", "Blog", "Contact"].map(
-                  (item) => (
-                    <motion.a
-                      key={item}
-                      href={item === "Blog" ? "#blog" : `#${item.toLowerCase()}`}
-                      onClick={() => setIsOpen(false)}
-                      className="text-white text-2xl font-bold tracking-tight hover:text-primary transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {item}
-                    </motion.a>
-                  )
+                {["Home", "Projects", "Work", "Tools", "My Thoughts", "Contact"].map(
+                  (item) => {
+                    const isBlogPage = item === "My Thoughts";
+                    const href = isBlogPage
+                      ? "/blog"
+                      : item === "Home"
+                        ? "/"
+                        : `/#${item.toLowerCase()}`;
+
+                    return (
+                      <Link
+                        key={item}
+                        to={href}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <motion.span
+                          className="text-white text-2xl font-bold tracking-tight hover:text-primary transition-colors block"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {item}
+                        </motion.span>
+                      </Link>
+                    );
+                  }
                 )}
 
                 <motion.a
