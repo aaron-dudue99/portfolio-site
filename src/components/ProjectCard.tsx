@@ -26,7 +26,7 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 120, damping: 15 }}
-      className="relative w-full max-w-4xl mx-auto rounded-[2rem] p-8  flex flex-col items-stretch gap-6 bg-[rgba(255,255,255,0.05)]  backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)] overflow-visible"
+      className="relative w-full max-w-4xl mx-auto rounded-[2rem] p-6 sm:p-8  flex flex-col items-stretch gap-6 bg-[rgba(255,255,255,0.05)]  backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)] overflow-visible"
     >
       {/* Image */}
       <div className="relative w-full flex justify-center items-center overflow-visible">

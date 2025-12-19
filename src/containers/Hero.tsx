@@ -10,7 +10,7 @@ export default function Hero() {
     >
       {/* Floating hand emojis (outside max-width container) */}
       <motion.span
-        className="absolute top-16 left-4 text-6xl  select-none z-0 pointer-events-none"
+        className="absolute top-24 sm:top-16 left-2 sm:left-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none"
         animate={{ rotate: [0, 15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{ maxWidth: "100px", overflow: "hidden" }}
@@ -19,7 +19,7 @@ export default function Hero() {
       </motion.span>
 
       <motion.span
-        className="absolute bottom-16 right-4 text-6xl  select-none z-0 pointer-events-none"
+        className="absolute bottom-12 sm:bottom-16 right-2 sm:right-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none"
         animate={{ rotate: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{ maxWidth: "100px", overflow: "hidden" }}
@@ -33,7 +33,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-heading text-5xl sm:text-5xl font-extrabold text-white leading-tight w-full"
+          className="font-heading text-4xl sm:text-5xl font-extrabold text-white leading-tight w-full"
           style={{ willChange: "opacity, transform" }}
         >
           <span className="inline-block">building</span>{" "}

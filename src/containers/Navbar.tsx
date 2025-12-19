@@ -56,13 +56,21 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const containerBg = scrolled
-    ? "bg-[rgba(255,255,255,0.03)]"
-    : "bg-[rgba(255,255,255,0.05)]";
-  const borderOpacity = scrolled
-    ? "border-[rgba(255,255,255,0.06)]"
-    : "border-[rgba(255,255,255,0.1)]";
-  const blurLevel = scrolled ? "backdrop-blur-sm" : "backdrop-blur-md";
+  const containerBg = isOpen
+    ? "bg-transparent"
+    : scrolled
+      ? "bg-[rgba(255,255,255,0.03)]"
+      : "bg-[rgba(255,255,255,0.05)]";
+  const borderOpacity = isOpen
+    ? "border-transparent"
+    : scrolled
+      ? "border-[rgba(255,255,255,0.06)]"
+      : "border-[rgba(255,255,255,0.1)]";
+  const blurLevel = isOpen
+    ? "backdrop-blur-none"
+    : scrolled
+      ? "backdrop-blur-sm"
+      : "backdrop-blur-md";
 
   return (
     <>
@@ -71,12 +79,14 @@ export default function Navbar() {
           {/* Top navbar */}
           <motion.div
             animate={{
-              boxShadow: scrolled
-                ? "0 12px 30px rgba(0,0,0,0.45)"
-                : "0 0 25px rgba(0,0,0,0.35)",
+              boxShadow: isOpen
+                ? "none"
+                : scrolled
+                  ? "0 12px 30px rgba(0,0,0,0.45)"
+                  : "0 0 25px rgba(0,0,0,0.35)",
             }}
             transition={{ duration: 0.22 }}
-            className={`${containerBg} ${borderOpacity} ${blurLevel} rounded-2xl px-5 py-3 flex items-center justify-between`}
+            className={`${containerBg} ${borderOpacity} ${blurLevel} rounded-2xl px-5 py-3 flex items-center justify-between relative z-50`}
             style={{ borderStyle: "solid" }}
           >
             <motion.div
@@ -106,55 +116,63 @@ export default function Navbar() {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 6 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.22 }}
-                className={`${containerBg} ${borderOpacity} ${blurLevel} rounded-2xl mt-4 py-5 flex flex-col items-center gap-3`}
-                style={{
-                  borderStyle: "solid",
-                  backgroundColor: "rgba(255, 255, 255, 0.12)", // increased from 0.05 to 0.12
-                  backdropFilter: "blur(12px)", // slightly stronger blur for readability
-                }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 bg-[#121212] backdrop-blur-xl"
               >
-                {["Home", "Projects", "Work", "Tools", "Contact"].map(
+                {/* Close button aligned with the navbar's hamburger position */}
+                <div className="absolute top-4 left-0 right-0 w-full px-4 sm:px-6 z-50 pointer-events-none">
+                  <div className="mx-auto w-full max-w-[800px] flex justify-end">
+                    <div className="px-5 py-3">
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="text-white p-2 rounded-lg hover:bg-white/6 transition-all pointer-events-auto"
+                        aria-label="Close menu"
+                      >
+                        <MdClose size={20} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                {["Home", "Projects", "Work", "Tools", "Blog", "Contact"].map(
                   (item) => (
                     <motion.a
                       key={item}
-                      href={`#${item.toLowerCase()}`}
+                      href={item === "Blog" ? "#blog" : `#${item.toLowerCase()}`}
                       onClick={() => setIsOpen(false)}
-                      className="relative text-white text-base py-2 px-6 w-[90%] text-center"
+                      className="text-white text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <span className="relative z-10">{item}</span>
-                      <motion.span
-                        layout
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.25 }}
-                        className="absolute left-0 bottom-0 h-[2px] bg-white rounded-full z-0"
-                      />
+                      {item}
                     </motion.a>
                   )
                 )}
+
+                <motion.a
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-4 px-8 py-3 rounded-full bg-primary text-white text-lg font-medium hover:bg-primary-500 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Download CV
+                </motion.a>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </nav>
 
-      {/* Backdrop behind the menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[4px]"
-          />
-        )}
-      </AnimatePresence>
+
     </>
   );
 }

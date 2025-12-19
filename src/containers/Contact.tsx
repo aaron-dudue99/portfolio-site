@@ -42,7 +42,7 @@ const Contact = () => {
         Get in Touch
       </p>
 
-      <div className="flex justify-start items-center gap-8 py-4 ">
+      <div className="flex justify-start items-center gap-8 py-4 flex-wrap">
         {contacts.map((contact) => (
           <a
             key={contact.name}

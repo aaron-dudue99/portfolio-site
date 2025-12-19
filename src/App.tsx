@@ -12,7 +12,7 @@ export default function App() {
       <Navbar />
       <Hero />
 
-      <div className="w-full max-w-[800px] mx-auto flex flex-col justify-center items-start">
+      <div className="w-full max-w-[800px] mx-auto flex flex-col justify-center items-start px-6">
         <Tools />
         <ProjectsSection />
         <Work />
