@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "motion/react";
-import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowLeft, FaExternalLinkAlt } from "react-icons/fa";
 import Heading from "../components/Heading";
 import { projects } from "../data/projects";
 
