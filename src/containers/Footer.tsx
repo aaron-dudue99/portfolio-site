@@ -37,10 +37,10 @@ function LogoSVG({ size = 36 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-20">
-      <div className="w-full border-t border-[rgba(255,255,255,0.1)]"></div>
+    <footer className="w-full mt-12 mb-12">
+      {/* <div className="w-full border-t border-[rgba(255,255,255,0.1)]"></div> */}
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="w-full px-0 py-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 w-full">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8  rounded flex items-center justify-center text-white text-xs font-bold">

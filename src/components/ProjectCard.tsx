@@ -1,23 +1,21 @@
-import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   image: string;
   title: string;
-  subtitle: string;
+  shortDesc: string;
   techStack: string;
   websiteLink?: string;
-  completed: boolean;
+  // completed: boolean;
   slug: string;
 }
 
 export default function ProjectCard({
   image,
   title,
-  subtitle,
+  shortDesc,
   techStack,
-  websiteLink,
-  completed,
+  // websiteLink,
   slug,
 }: ProjectCardProps) {
   const techStackItems = techStack
@@ -26,80 +24,62 @@ export default function ProjectCard({
     .filter(Boolean);
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 120, damping: 15 }}
-      className="relative w-full max-w-4xl mx-auto rounded-[2rem] p-6 sm:p-8  flex flex-col items-stretch gap-6 bg-[rgba(255,255,255,0.05)]  backdrop-blur-md shadow-[0_0_25px_rgba(0,0,0,0.4)] overflow-visible"
-    >
-      {/* Image */}
-      <Link to={`/projects/${slug}`} className="relative w-full flex justify-center items-center overflow-visible block group">
-        <img
-          src={image}
-          alt={title}
-          className="rounded-2xl object-cover w-full h-[300px] group-hover:opacity-90 transition-opacity"
-        />
-      </Link>
+    <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-white/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
 
-      {/* Right Section */}
-      <div className="flex flex-col justify-center items-start w-full text-white">
-        <Link to={`/projects/${slug}`}>
-          <h3 className="text-2xl font-bold font-[Poppins] hover:text-primary transition-colors">{title}</h3>
-        </Link>
-        <p className="mt-2 text-[#B3A9A9] text-sm">{subtitle}</p>
-
-        {/* Tech Stack */}
-        <div className="mt-4 flex flex-wrap gap-3 text-[#E6DADA] text-[11px] tracking-[0.28em] uppercase  font-semibold">
-          {(techStackItems.length ? techStackItems : [techStack]).map(
-            (item, index) => (
-              <span key={`${item}-${index}`}>{item}</span>
-            )
-          )}
-        </div>
-
-        <div className="flex flex-wrap gap-6 mt-8">
+      {/* Thumbnail */}
+      <div className="z-10 sm:order-2 sm:col-span-6">
+        <h3>
           <Link
             to={`/projects/${slug}`}
-            className="relative inline-block uppercase text-sm tracking-widest font-bold"
+            className="inline-flex items-baseline font-medium leading-tight text-text-main hover:text-primary focus-visible:text-primary group/link text-base"
           >
-            <span className="text-white hover:text-primary transition-colors">View Details</span>
-          </Link>
-
-          {websiteLink && (
-            <motion.a
-              href={websiteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative inline-block uppercase text-sm tracking-widest"
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-            >
-              <motion.span
-                className="text-[#E78282] font-medium"
-                variants={{
-                  rest: { color: "#E78282" },
-                  hover: { color: "#FAE6E6" },
-                }}
-                transition={{ duration: 0.3 }}
+            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+            <span>
+              {title}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none ml-1"
+                aria-hidden="true"
               >
-                Visit Website
-              </motion.span>
-              <motion.div
-                className="absolute left-0 bottom-[-4px] h-[2px] bg-[#E78282] rounded-full"
-                variants={{ rest: { width: "40%" }, hover: { width: "100%" } }}
-                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              />
-            </motion.a>
-          )}
-        </div>
+                <path
+                  fillRule="evenodd"
+                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+          </Link>
+        </h3>
+        <p className="mt-2 text-sm leading-normal text-text-muted">
+          {shortDesc}
+        </p>
 
-        {/* Coming Soon */}
-        {!completed && !websiteLink && (
-          <div className="mt-8 text-[#E78282] uppercase text-sm tracking-widest font-medium">
-            In Progress
-          </div>
-        )}
+        {/* Tech Chips */}
+        <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+          {techStackItems.map((item, index) => (
+            <li key={`${item}-${index}`} className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-[rgba(195,59,59,0.1)] px-3 py-1 text-xs font-medium leading-5 text-primary">
+                {item}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-    </motion.div>
+
+      {/* Image (Small on left for desktop) */}
+      <div className="z-10 sm:order-1 sm:col-span-2 sm:translate-y-1">
+        <img
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+          style={{ color: "transparent" }}
+          src={image}
+        />
+      </div>
+    </div>
   );
 }

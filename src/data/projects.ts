@@ -1,33 +1,24 @@
 export interface Project {
-    title: string;
-    subtitle: string;
-    techStack: string;
-    image: string;
-    websiteLink?: string;
-    completed: boolean;
-    slug: string;
-    content?: React.ReactNode;
+  title: string;
+  shortDesc: string;
+  techStack: string;
+  image: string;
+  websiteLink?: string;
+  completed: boolean;
+  slug: string;
+  content?: React.ReactNode;
 }
 
 export const projects: Project[] = [
-    {
-        title: "RideChecka",
-        subtitle: "A platform to check a ride's history",
-        techStack: "Next.js, Framer Motion, MySql, Node",
-        image: "/images/project1.jfif",
-        websiteLink: "",
-        completed: false,
-        slug: "ridechecka",
-        content: "Detailed case study content for RideChecka will go here.",
-    },
-    {
-        title: "Portfolio V1",
-        subtitle: "My first portfolio website",
-        techStack: "React, Tailwind, Motion",
-        image: "/images/project1alt.jfif",
-        websiteLink: "https://example.com",
-        completed: true,
-        slug: "portfolio-v1",
-        content: "Detailed case study content for Portfolio V1 will go here.",
-    }
+  {
+    title: "Fairstay",
+    shortDesc:
+      "A web-based platform designed to manage records and communication between landlords and tenants. The application enables users to generate, send, and track lease agreements; manage landlord properties and individual units; track rent payments and receive notifications for upcoming dues; and raise, manage, and resolve disputes through a structured, transparent workflow.",
+    techStack: "Angular, Spring Boot, PostgreSql",
+    image: "/images/fairstay.png",
+    websiteLink: "",
+    completed: false,
+    slug: "fairstay",
+    content: "Detailed case study content for Fairstay will go here.",
+  },
 ];
