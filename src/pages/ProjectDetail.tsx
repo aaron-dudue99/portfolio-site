@@ -65,7 +65,7 @@ export default function ProjectDetail() {
             {project.title}
           </h1>
           <p className="text-xl text-[var(--color-text-muted)] mb-8">
-            {project.subtitle}
+            {project.shortDesc}
           </p>
 
           <div className="flex gap-4 mb-12">
