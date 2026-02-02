@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "./containers/Navbar";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -49,7 +48,6 @@ export default function App() {
       <div className="bg-background text-text-main font-body w-full min-h-screen flex flex-col relative selection:bg-primary-300 selection:text-primary-900">
         <ScrollToAnchor />
         <MouseSpotlight />
-        <Navbar />
 
         <main className="flex-grow z-10 w-full">
           <Routes>

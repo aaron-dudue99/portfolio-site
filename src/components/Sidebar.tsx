@@ -39,9 +39,9 @@ export default function Sidebar() {
   ];
 
   return (
-    <header className="relative lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <header className="relative px-6 md:px-12 lg:px-0 lg:flex lg:flex-col lg:justify-between overflow-hidden lg:h-full w-full">
       <motion.span
-        className="absolute top-12 left-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none lg:top-12 lg:left-0"
+        className="absolute top-4 left-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none lg:top-4 lg:left-0"
         animate={{ rotate: [0, 15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{ maxWidth: "100px", overflow: "hidden" }}
@@ -58,8 +58,8 @@ export default function Sidebar() {
         🖖🏽
       </motion.span>
 
-      <div className="relative z-10">
-        <h1 className="text-4xl font-bold tracking-tight text-text-main sm:text-5xl">
+      <div className="relative">
+        <h1 className="mt-24 text-4xl font-bold tracking-tight text-text-main sm:text-5xl">
           <Link to="/">Duduzile Sibanda</Link>
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-text-main sm:text-xl">

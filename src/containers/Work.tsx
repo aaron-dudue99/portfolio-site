@@ -111,12 +111,12 @@ const Work = () => {
       <div className="mt-12">
         <a
           className="inline-flex items-baseline font-medium leading-tight text-text-main hover:text-primary focus-visible:text-primary group/link text-base border-b border-transparent hover:border-primary transition-colors pb-0.5"
-          href="/resume.pdf"
+          href="/docs/resume.pdf"
           target="_blank"
           rel="noreferrer noopener"
         >
           <span>
-            View Full Resumé
+            View Resumé (PDF)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"

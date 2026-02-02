@@ -26,7 +26,8 @@
 }
 
 @utility bg-vignette {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at center,
       rgba(255, 255, 255, 0.05) 0%,
       rgba(18, 18, 18, 1) 100%
@@ -40,7 +41,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
   font-size: 16px;
@@ -50,7 +50,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overflow-y: scroll;
 }
 
 /* Root element constraints */
@@ -58,52 +57,44 @@ html {
   width: 100%;
   max-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
 
-/* For modern browsers */
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
 }
 
-/* Chrome, Edge, Safari - Hide scrollbars */
 body::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
 }
 
-/* Hide scrollbar for webkit browsers */
 html::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
 }
 
-/* Gradient text with robust cross-browser compatibility */
 .gradient-text {
   display: inline-block;
-  /* Fallback color for browsers that don't support gradient text */
   color: #e78282;
   -webkit-text-fill-color: #e78282;
 }
 
-/* When gradient text is properly supported, make text transparent so gradient shows */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .gradient-text {
-    /* Only make transparent if background-clip is supported */
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
