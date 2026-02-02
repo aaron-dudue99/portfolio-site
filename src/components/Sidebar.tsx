@@ -66,7 +66,8 @@ export default function Sidebar() {
           FullStack Developer
         </h2>
         <p className="mt-4 max-w-xs leading-normal text-text-muted">
-          I build pixel-perfect, engaging, and accessible digital experiences.
+          I solve problems with software, turning complex ideas into scalable
+          systems and polished user experiences.
         </p>
 
         <nav className="nav hidden lg:block" aria-label="In-page jump links">

@@ -17,11 +17,12 @@ const About = () => {
       </div>
       <div>
         <p className="mb-4 leading-relaxed text-text-muted">
-          I’m Duduzile Sibanda, a full-stack developer with a strong frontend
-          focus, working primarily with Angular and Spring Boot. I specialize in
-          building pixel-perfect, intuitive user interfaces with a deep emphasis
-          on web accessibility, creating experiences that are both inclusive and
-          delightful to use.
+          <p className="mb-4 leading-relaxed text-text-muted">
+            I’m Duduzile Sibanda, a software engineer who bridges product
+            thinking and engineering. I work with Angular and Spring Boot to
+            build accessible user interfaces and scalable systems that turn
+            complex ideas into intuitive, dependable products.
+          </p>
         </p>
         <p className="mb-4 leading-relaxed text-text-muted">
           My main focus these days is building accessible, inclusive products
