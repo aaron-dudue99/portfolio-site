@@ -37,7 +37,7 @@ export default function ProjectsPage() {
             {[1, 2, 3].map((_, i) => (
               <div
                 key={i}
-                className="w-full h-[200px] rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/5 animate-pulse"
+                className="w-full h-[200px] rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/5 shimmer"
               />
             ))}
           </div>

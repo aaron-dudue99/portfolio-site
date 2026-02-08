@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 interface Job {
   company: string;
   link: string;
@@ -35,7 +36,7 @@ const Work = () => {
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
     >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-text-main lg:sr-only">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-text-main lg:sr-only accent-line">
           Experience
         </h2>
       </div>
@@ -43,17 +44,32 @@ const Work = () => {
       <div>
         <ol className="group/list">
           {jobs.map((job, index) => (
-            <li key={index} className="mb-12">
-              <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-white/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="mb-12 timeline-connector ml-10"
+            >
+              <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md">
+                {/* Timeline Date Header - Outside hover effect */}
                 <header
-                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-text-muted sm:col-span-2"
+                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-text-muted sm:col-span-2 timeline-dot"
                   aria-label={job.period}
                 >
                   {job.period}
                 </header>
-                <div className="z-10 sm:col-span-6">
-                  <h3 className="font-medium leading-snug text-text-main">
+                
+                {/* Content Column - Hover effect applied here */}
+                <motion.div 
+                  className="z-10 sm:col-span-6 relative group/card glass-card rounded-md"
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                   <div className="glass-glow-orb"></div>
+                   
+                  <h3 className="font-medium leading-snug text-text-main relative z-10">
                     <div>
                       <a
                         className="inline-flex items-baseline font-medium leading-tight text-text-main hover:text-primary focus-visible:text-primary group/link text-base"
@@ -86,24 +102,24 @@ const Work = () => {
                       </a>
                     </div>
                   </h3>
-                  <p className="mt-2 text-sm leading-normal text-text-muted">
+                  <p className="mt-2 text-sm leading-normal text-text-muted relative z-10">
                     {job.description}
                   </p>
                   <ul
-                    className="mt-2 flex flex-wrap"
+                    className="mt-2 flex flex-wrap relative z-10"
                     aria-label="Technologies used"
                   >
                     {job.tags.map((tag) => (
                       <li key={tag} className="mr-1.5 mt-2">
-                        <div className="flex items-center rounded-full bg-[rgba(195,59,59,0.1)] px-3 py-1 text-xs font-medium leading-5 text-primary">
+                        <div className="flex items-center rounded-full bg-[rgba(195,59,59,0.1)] px-3 py-1 text-xs font-medium leading-5 text-primary tag-hover">
                           {tag}
                         </div>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ol>
       </div>

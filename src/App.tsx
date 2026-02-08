@@ -45,7 +45,7 @@ function MouseSpotlight() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="bg-background text-text-main font-body w-full min-h-screen flex flex-col relative selection:bg-primary-300 selection:text-primary-900">
+      <div className="bg-background text-text-main font-body w-full min-h-screen flex flex-col relative selection:bg-primary-300 selection:text-primary-900 bg-noise">
         <ScrollToAnchor />
         <MouseSpotlight />
 

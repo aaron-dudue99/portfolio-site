@@ -31,6 +31,7 @@ const ProjectsSection = () => {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ type: "spring", stiffness: 120, damping: 15 }}
+            whileHover={{ y: -10 }}
           >
             <ProjectCard {...project} />
           </motion.div>
