@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetail from "./pages/ProjectDetail";
+import ProjectPlaceholder from "./pages/ProjectPlaceholder";
 
 function ScrollToAnchor() {
   const { hash } = useLocation();
@@ -53,8 +54,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/projects" element={<ProjectsPage />}>
+              <Route index element={<ProjectPlaceholder />} />
+              <Route path=":slug" element={<ProjectDetail />} />
+            </Route>
           </Routes>
         </main>
       </div>

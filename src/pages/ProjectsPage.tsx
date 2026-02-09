@@ -1,71 +1,66 @@
-import ProjectCard from "../components/ProjectCard";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import SplitLayout from "../components/SplitLayout";
 import { projects } from "../data/projects";
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { FaArrowLeft } from "react-icons/fa";
 
-export default function ProjectsPage() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    // Simulate API fetch delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+const ProjectsSidebar = () => {
   return (
-    <div className="pt-32 pb-20 w-full min-h-screen px-6">
-      <div className="w-full max-w-[800px] mx-auto">
-        <div className="flex items-center gap-4 mb-12">
-          <a href="/" className="group flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 transition-transform group-hover:-translate-x-1">
-              <path fillRule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clipRule="evenodd" />
-            </svg>
-            <span className="text-sm font-bold uppercase tracking-widest">Back</span>
-          </a>
-          <h1 className="text-4xl font-bold tracking-tight text-text-main">
-            All Projects
-          </h1>
+    <header className="relative px-6 md:px-12 lg:px-0 lg:flex lg:flex-col lg:justify-between overflow-hidden lg:h-full w-full">
+      <div className="relative">
+        <div className="mt-24 mb-12">
+          <Link
+            to="/"
+            className="group flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest"
+          >
+            <FaArrowLeft /> Back to Home
+          </Link>
         </div>
 
-        {loading ? (
-          <div className="flex flex-col gap-12">
-            {[1, 2, 3].map((_, i) => (
-              <div
-                key={i}
-                className="w-full h-[200px] rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/5 shimmer"
-              />
+        <h1 className="text-4xl font-bold tracking-tight text-text-main sm:text-5xl mb-8">
+          Projects
+        </h1>
+
+        <nav className="nav hidden lg:block" aria-label="Project list">
+          <div className="mt-8 flex flex-col gap-3">
+            {projects.map((project) => (
+              <NavLink
+                key={project.slug}
+                to={`/projects/${project.slug}`}
+                className={({ isActive }) =>
+                  `group relative flex items-center gap-4 rounded-xl p-3 transition-all duration-300 border glass-card ${
+                    isActive
+                      ? "bg-white/5 border-white/20 shadow-lg"
+                      : "hover:bg-white/5 hover:border-white/10"
+                  }`
+                }
+              >
+                <div className="glass-glow-orb"></div>
+                <div className="relative h-12 w-16 shrink-0 overflow-hidden rounded-md bg-white/5">
+                  <img
+                    src={project.image}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <div className="flex flex-col relative z-10">
+                  <span className="font-bold text-text-main group-hover:text-primary transition-colors">
+                    {project.title}
+                  </span>
+                </div>
+              </NavLink>
             ))}
           </div>
-        ) : (
-          <motion.div
-            className="flex flex-col gap-12"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } },
-            }}
-          >
-            {projects.map((project) => (
-              <motion.div
-                key={project.slug}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ type: "spring", stiffness: 120, damping: 15 }}
-              >
-                <ProjectCard {...project} />
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+        </nav>
       </div>
-    </div>
+    </header>
+  );
+};
+
+export default function ProjectsPage() {
+  return (
+    <SplitLayout
+      leftContent={<ProjectsSidebar />}
+      rightContent={<Outlet />}
+    />
   );
 }
