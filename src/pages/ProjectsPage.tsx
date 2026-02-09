@@ -20,7 +20,7 @@ const ProjectsSidebar = () => {
           Projects
         </h1>
 
-        <nav className="nav hidden lg:block" aria-label="Project list">
+        <nav className="nav block" aria-label="Project list">
           <div className="mt-8 flex flex-col gap-3">
             {projects.map((project) => (
               <NavLink
