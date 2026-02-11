@@ -1,5 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import SplitLayout from "../components/SplitLayout";
+import ScrollIndicator from "../components/ScrollIndicator";
 import ProjectsSection from "../containers/ProjectsSection";
 import Work from "../containers/Work";
 // import Footer from "../containers/Footer";
@@ -39,6 +40,7 @@ const About = () => {
 
 export default function Home() {
   return (
+    <>
     <SplitLayout
       leftContent={<Sidebar />}
       rightContent={
@@ -52,5 +54,7 @@ export default function Home() {
         </div>
       }
     />
+    <ScrollIndicator />
+    </>
   );
 }

@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "motion/react";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { projects } from "../data/projects";
+import ReactMarkdown from "react-markdown";
+import ScrollIndicator from "../components/ScrollIndicator";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -44,7 +46,7 @@ export default function ProjectDetail() {
           <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 mb-8">
+        {/* <div className="flex flex-wrap items-center gap-4 mb-8">
           {techStackItems.map((tech) => (
             <span
               key={tech}
@@ -53,14 +55,22 @@ export default function ProjectDetail() {
               {tech}
             </span>
           ))}
-        </div>
+        </div> */}
+
+         <ul className="flex flex-wrap gap-4 items-center mb-8" aria-label="Technologies used">
+          {techStackItems.map((item, index) => (
+            <li key={`${item}-${index}`} className="mr-1.5">
+              <div className="flex items-center rounded-full bg-[rgba(195,59,59,0.1)] px-3 py-1 text-small font-medium leading-5 text-primary tag-hover">
+                {item}
+              </div>
+            </li>
+          ))}
+        </ul>
 
         <h1 className="text-4xl sm:text-5xl font-extrabold font-heading text-white leading-tight mb-4">
           {project.title}
         </h1>
-        <p className="text-xl text-[var(--color-text-muted)] mb-8">
-          {project.shortDesc}
-        </p>
+       
 
         <div className="flex gap-4 mb-12">
           {project.websiteLink && (
@@ -73,15 +83,17 @@ export default function ProjectDetail() {
               <FaExternalLinkAlt /> Visit Website
             </a>
           )}
-          {/* Placeholder for GitHub link if added to data later */}
-          {/* <a href="#" className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+       
+          <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                   <FaGithub /> View Code
-              </a> */}
+              </a>
         </div>
 
-        <div className="prose prose-invert prose-lg max-w-none text-[var(--color-text-muted)] leading-relaxed">
+        <div className="prose prose-invert prose-lg max-w-none text-[var(--color-text-muted)] leading-relaxed prose-headings:text-white prose-a:text-primary-400 prose-strong:text-white prose-code:text-primary-200">
           {typeof project.content === "string" ? (
-            <p>{project.content}</p>
+            <div className="markdown-content">
+               <ReactMarkdown>{project.content}</ReactMarkdown>
+            </div>
           ) : (
             project.content
           )}
@@ -93,6 +105,7 @@ export default function ProjectDetail() {
           )}
         </div>
       </motion.div>
+      <ScrollIndicator />
     </article>
   );
 }
