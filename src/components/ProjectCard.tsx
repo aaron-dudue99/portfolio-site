@@ -58,7 +58,6 @@ export default function ProjectCard({
           {shortDesc}
         </p>
 
-        {/* Tech Chips */}
         <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
           {techStackItems.map((item, index) => (
             <li key={`${item}-${index}`} className="mr-1.5 mt-2">

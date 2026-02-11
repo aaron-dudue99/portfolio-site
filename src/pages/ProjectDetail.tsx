@@ -46,17 +46,6 @@ export default function ProjectDetail() {
           <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
         </div>
 
-        {/* <div className="flex flex-wrap items-center gap-4 mb-8">
-          {techStackItems.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] text-xs uppercase tracking-wider text-primary-200 border border-white/10"
-            >
-              {tech}
-            </span>
-          ))}
-        </div> */}
-
          <ul className="flex flex-wrap gap-4 items-center mb-8" aria-label="Technologies used">
           {techStackItems.map((item, index) => (
             <li key={`${item}-${index}`} className="mr-1.5">
