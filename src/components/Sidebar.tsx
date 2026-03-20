@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import HexagonBackground from "./HexagonBackground";
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState("");
@@ -40,8 +41,9 @@ export default function Sidebar() {
 
   return (
     <header className="relative px-6 md:px-12 lg:px-0 lg:flex lg:flex-col lg:justify-between overflow-hidden lg:h-full w-full">
+      <HexagonBackground className="opacity-100 mix-blend-screen" />
       <motion.span
-        className="absolute top-4 left-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none lg:top-4 lg:left-0"
+        className="absolute top-4 left-4 text-4xl sm:text-6xl select-none z-10 lg:top-4 lg:left-0"
         animate={{ rotate: [0, 15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{ maxWidth: "100px", overflow: "hidden" }}
@@ -50,7 +52,7 @@ export default function Sidebar() {
       </motion.span>
 
       <motion.span
-        className="absolute bottom-12 right-4 text-4xl sm:text-6xl select-none z-0 pointer-events-none lg:bottom-12 lg:right-10"
+        className="absolute bottom-12 right-4 text-4xl sm:text-6xl select-none z-10 lg:bottom-12 lg:right-10"
         animate={{ rotate: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{ maxWidth: "100px", overflow: "hidden" }}

@@ -2,11 +2,13 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import SplitLayout from "../components/SplitLayout";
 import { projects } from "../data/projects";
 import { FaArrowLeft } from "react-icons/fa";
+import HexagonBackground from "../components/HexagonBackground";
 
 const ProjectsSidebar = () => {
   return (
     <header className="relative px-6 md:px-12 lg:px-0 lg:flex lg:flex-col lg:justify-between overflow-hidden lg:h-full w-full">
-      <div className="relative">
+      <HexagonBackground className="opacity-100 mix-blend-screen" />
+      <div className="relative z-10">
         <div className="mt-24 mb-12">
           <Link
             to="/"
