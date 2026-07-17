@@ -10,6 +10,15 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    company: "Afrosoft Holdings",
+    link: "https://www.afrosoft.co.zw/",
+    role: "Software Engineer",
+    period: "2026 — Present",
+    description:
+      "I maintain and enhance Angular-based components across internal applications, collaborating closely with backend teams to integrate RESTful APIs and deliver seamless frontend functionality. I identified and resolved UI bugs, optimized performance and user experience across browsers, and implemented responsive designs to ensure mobile compatibility. I refactored legacy codebases to improve readability, maintainability, and performance, while keeping technical documentation up to date to support efficient frontend workflows. I actively participated in code reviews using Git best practices and worked closely with QA teams to validate and verify bug fixes and new features before release. ",
+    tags: ["TypeScript", "Angular", "Nx Monorepo", "Redux", "Bootstrap"],
+  },
+  {
     company: "Equals Solutions",
     link: "https://equals.co.zw",
     role: "Junior Systems Engineer",
